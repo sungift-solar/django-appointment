@@ -1260,7 +1260,7 @@ class WorkingHours(models.Model):
         unique_together = ["staff_member", "day_of_week"]
         constraints = [
             models.CheckConstraint(
-                condition=models.Q(start_time__lt=F("end_time")),
+                condition=models.Q(start_time__lt=models.F("end_time")),
                 name="start_time_before_end_time",
             ),
         ]
